@@ -68,7 +68,9 @@ $ brew install boot2docker
 > chocolatey install docker make
 ```
 
-# INTERMEDIATE LESSONS
+# OTHER LESSONS
+
+See [hello-docker](https://github.com/mcandre/hello-docker) for a basic Docker introduction.
 
 See [docker-sh](https://github.com/mcandre/docker-sh) for how to launch interactive bash sessions into containers for running multiple commands.
 
