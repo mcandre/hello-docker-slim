@@ -10,8 +10,8 @@ https://registry.hub.docker.com/u/mcandre/hello-docker-slim/
 $ make
 docker run --rm mcandre/hello-docker-slim echo 'Hello World!'
 Hello World!
-docker images | grep hello-docker-slim
-mcandre/hello-docker-slim              latest              ae544cc5a863        24 minutes ago       2.433 MB
+docker images | grep hello-docker-slim | awk '{ print $(NF-1), " ", $NF }'
+2.433   MB
 ```
 
 # ABOUT
@@ -28,6 +28,8 @@ hello-docker-slim is a container for printing Hello World, made smaller with a f
 ## Optional
 
 * [make](http://www.gnu.org/software/make/)
+* [grep](http://www.gnu.org/software/grep/)
+* [awk](https://en.wikipedia.org/wiki/AWK)
 
 ## Debian/Ubuntu
 

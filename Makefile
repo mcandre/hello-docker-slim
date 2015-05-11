@@ -7,7 +7,7 @@ build: Dockerfile
 
 run: clean-containers build
 	docker run --rm $(IMAGE) echo 'Hello World!'
-	docker images | grep hello-docker-slim
+	docker images | grep hello-docker-slim | awk '{ print $$(NF-1), " ", $$NF }'
 
 clean-containers:
 	-docker ps -a | grep -v IMAGE | awk '{ print $$1 }' | xargs docker rm -f
