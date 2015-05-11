@@ -10,8 +10,8 @@ https://registry.hub.docker.com/u/mcandre/hello-docker-slim/
 $ make
 docker run --rm mcandre/hello-docker-slim echo 'Hello World!'
 Hello World!
-docker images | grep hello-docker-slim | awk '{ print $(NF-1), " ", $NF }'
-2.433   MB
+docker images | grep hello-docker-slim | awk '{ print $(NF-1), $NF }'
+2.433 MB
 ```
 
 # ABOUT
