@@ -7,11 +7,17 @@ https://registry.hub.docker.com/u/mcandre/hello-docker-slim/
 # EXAMPLE
 
 ```
+$ docker pull mcandre/docker-gcc
+$ docker run -it -v $(pwd):/mnt mcandre/docker-gcc bash
+root@b2b639fe64c0:/# cd /mnt
+root@b2b639fe64c0:/mnt# mkdir -p bin/
+root@b2b639fe64c0:/mnt# gcc -o bin/hello --static hello.c
+root@b2b639fe64c0:/mnt# exit
 $ make
-docker run --rm mcandre/hello-docker-slim echo 'Hello World!'
+docker run mcandre/hello-docker-slim
 Hello World!
 docker images | grep hello-docker-slim | awk '{ print $(NF-1), $NF }'
-2.433 MB
+829.3 kB
 ```
 
 # ABOUT
@@ -19,7 +25,7 @@ docker images | grep hello-docker-slim | awk '{ print $(NF-1), $NF }'
 hello-docker-slim is a container for printing Hello World, made smaller with a few techniques:
 
 * Identify dependencies with [strace](http://sourceforge.net/projects/strace/).
-* Switch base image from [ubuntu](https://registry.hub.docker.com/_/ubuntu/) to [busybox](https://registry.hub.docker.com/_/busybox/).
+* Switch base image from [ubuntu](https://registry.hub.docker.com/_/ubuntu/) to [scratch](https://docs.docker.com/articles/baseimages/#creating-a-simple-base-image-using-scratch).
 
 # REQUIREMENTS
 

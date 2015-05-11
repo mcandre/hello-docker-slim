@@ -6,7 +6,7 @@ build: Dockerfile
 	docker build -t $(IMAGE) .
 
 run: clean-containers build
-	docker run --rm $(IMAGE) echo 'Hello World!'
+	docker run $(IMAGE)
 	docker images | grep hello-docker-slim | awk '{ print $$(NF-1), $$NF }'
 
 clean-containers:
