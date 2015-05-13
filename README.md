@@ -7,12 +7,12 @@ https://registry.hub.docker.com/u/mcandre/hello-docker-slim/
 # EXAMPLE
 
 ```
-$ docker pull mcandre/docker-gcc
-$ docker run -it -v $(pwd):/mnt mcandre/docker-gcc bash
+$ docker pull mcandre/docker-yasm
+$ docker run -it -v $(pwd):/mnt mcandre/docker-yasm bash
 root@b2b639fe64c0:/# cd /mnt
-root@b2b639fe64c0:/mnt# mkdir -p bin/
-root@b2b639fe64c0:/mnt# gcc -o bin/hello --static hello.c
-root@b2b639fe64c0:/mnt# exit
+root@b2b639fe64c0:/mnt# cd src/
+root@b2b639fe64c0:/mnt/src# make
+root@b2b639fe64c0:/mnt/src# exit
 $ make
 docker run mcandre/hello-docker-slim
 Hello World!
