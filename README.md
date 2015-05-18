@@ -16,8 +16,8 @@ root@b2b639fe64c0:/mnt/src# exit
 $ make
 docker run mcandre/hello-docker-slim
 Hello World!
-docker images | grep hello-docker-slim | awk '{ print $(NF-1), $NF }'
-829.3 kB
+docker images | grep mcandre/hello-docker-slim | awk '{ print $(NF-1), $NF }'
+912 B
 ```
 
 # ABOUT
