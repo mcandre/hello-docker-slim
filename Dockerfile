@@ -1,4 +1,4 @@
 FROM scratch
 MAINTAINER Andrew Pennebaker <andrew.pennebaker@gmail.com>
-ADD src/hello /
+ADD src/bin/hello /
 ENTRYPOINT ["/hello"]
