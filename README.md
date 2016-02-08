@@ -8,12 +8,8 @@ https://registry.hub.docker.com/u/mcandre/hello-docker-slim/
 
 ```
 $ docker pull mcandre/docker-yasm
-$ docker run -it -v $(pwd):/mnt mcandre/docker-yasm bash
-root@b2b639fe64c0:/# cd /mnt
-root@b2b639fe64c0:/mnt# cd src/
-root@b2b639fe64c0:/mnt/src# make
-root@b2b639fe64c0:/mnt/src# exit
 $ make
+docker run -it -v $(pwd):/mnt mcandre/docker-yasm sh -c 'cd /mnt/src; make'
 docker run mcandre/hello-docker-slim
 Hello World!
 docker images | grep mcandre/hello-docker-slim | awk '{ print $(NF-1), $NF }'
@@ -36,6 +32,7 @@ hello-docker-slim is a container for printing Hello World, made smaller with a f
 * [make](http://www.gnu.org/software/make/)
 * [grep](http://www.gnu.org/software/grep/)
 * [awk](https://en.wikipedia.org/wiki/AWK)
+* [Node.js](https://nodejs.org/en/) (for dockerlint)
 
 ## Debian/Ubuntu
 

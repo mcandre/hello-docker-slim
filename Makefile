@@ -1,8 +1,12 @@
 IMAGE=mcandre/hello-docker-slim
+BIN=src/bin/hello
 
 all: run
 
-build: Dockerfile
+$(BIN):
+	docker run -it -v $(shell pwd):/mnt mcandre/docker-yasm sh -c 'cd /mnt/src; make'
+
+build: Dockerfile $(BIN)
 	docker build -t $(IMAGE) .
 
 run: clean-containers build
@@ -19,6 +23,11 @@ clean-layers:
 	-docker images | grep -v IMAGE | grep none | awk '{ print $$3 }' | xargs docker rmi -f
 
 clean: clean-containers clean-images clean-layers
+
+dockerlint:
+	$(shell npm bin)/dockerlint
+
+lint: dockerlint
 
 publish:
 	docker push $(IMAGE)
