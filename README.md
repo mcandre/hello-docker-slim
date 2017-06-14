@@ -33,6 +33,8 @@ hello-docker-slim is a container for printing Hello World, made smaller with a f
 * [grep](http://www.gnu.org/software/grep/)
 * [awk](https://en.wikipedia.org/wiki/AWK)
 * [Node.js](https://nodejs.org/en/) (for dockerlint)
+* [editorconfig-cli](https://github.com/amyboyd/editorconfig-cli) (e.g. `go get github.com/amyboyd/editorconfig-cli`)
+* [flcl](https://github.com/mcandre/flcl) (e.g. `go get github.com/mcandre/flcl/...`)
 
 ## Debian/Ubuntu
 
