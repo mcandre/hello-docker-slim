@@ -4,14 +4,14 @@ BIN=src/bin/hello
 all: run
 
 $(BIN):
-	docker run -it -v $(shell pwd):/mnt mcandre/docker-yasm sh -c 'cd /mnt/src; make'
+	@docker run -it -v $(shell pwd):/mnt mcandre/docker-yasm sh -c 'cd /mnt/src; make'
 
 build: Dockerfile $(BIN)
-	docker build -t $(IMAGE) .
+	@docker build -t $(IMAGE) .
 
 run: clean-containers build
-	docker run $(IMAGE)
-	docker images | grep $(IMAGE) | awk '{ print $$(NF-1), $$NF }'
+	@docker run $(IMAGE)
+	@docker images | grep $(IMAGE) | awk '{ print $$(NF-1), $$NF }'
 
 clean-containers:
 	-docker ps -a | grep -v IMAGE | awk '{ print $$1 }' | xargs docker rm -f
@@ -25,10 +25,10 @@ clean-layers:
 clean: clean-containers clean-images clean-layers
 
 editorconfig:
-	flcl . | xargs -n 100 editorconfig-cli check
+	@git ls-files -z | grep -av patch | xargs -0 -r -n 100 $(shell npm bin)/eclint check
 
 dockerlint:
-	$(shell npm bin)/dockerlint
+	@$(shell npm bin)/dockerlint
 
 lint: editorconfig dockerlint
 
